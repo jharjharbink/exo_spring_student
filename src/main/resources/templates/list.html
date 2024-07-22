@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<h1>Liste des étudiants</h1>
+<hr>
+
+<div>
+    <ul th:unless="${students.isEmpty()}">
+        <li th:each="s : ${students}">
+            <span th:text="${s.getFirstName()}"></span>
+            <span th:text="${s.getLastName()}"></span>
+            <a th:href="@{/detail/id(studentId=${s.getId()})}">Détail</a>
+            <a th:href="@{/delete(studentId=${s.getId()})}">Supprimer</a>
+            <a th:href="@{/update(studentId=${s.getId()})}">Modifier</a>
+        </li>
+    </ul>
+</div>
+
+<hr>
+<nav>
+    <a th:href="@{/}">Home Page</a>
+</nav>
+
+</body>
+</html>

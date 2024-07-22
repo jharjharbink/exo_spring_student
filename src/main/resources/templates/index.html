@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+<h1>Bienvenu dans la gestion de vos étudiants</h1>
+<hr>
+
+<h2>Navigation</h2>
+<nav>
+    <a th:href="@{/list}">Liste des étudiants</a>
+    <a th:href="@{/inscription}">enregistrer nouvel étudiant</a>
+</nav>
+
+<hr>
+<h2>Recherche</h2>
+
+<form th:action="@{/detail}" method="get" th:object="${student}">
+    <div>
+        <label for="firstName">Nom de l'étudiant</label>
+        <input type="text" id="firstName" th:field="*{firstName}">
+    </div>
+    <button>Recherche</button>
+</form>
+
+
+
+</body>
+</html>

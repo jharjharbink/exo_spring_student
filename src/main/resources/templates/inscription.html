@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+</head>
+<body>
+
+<h1>inscription Etudiant</h1>
+<hr>
+
+
+<form th:action="@{inscription/add}" method="post" th:object="${student}">
+    <input th:field="*{id}" hidden>
+    <div>
+        <label for="firstName">Nom</label>
+        <input type="text" id="firstName" th:field="*{firstName}">
+    </div>
+    <div>
+        <label for="lastName">Prénom</label>
+        <input type="text" id="lastName" th:field="*{lastName}">
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <input type="text" id="age" th:field="*{age}">
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" th:field="*{email}">
+    </div>
+    <button>Inscription</button>
+</form>
+
+<hr>
+<nav>
+    <a th:href="@{/}">Acceuil</a>
+</nav>
+
+
+
+
+
+</body>
+</html>

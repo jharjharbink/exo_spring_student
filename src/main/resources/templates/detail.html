@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+
+<h1>Detail de l'étudiant"</h1>
+<hr>
+
+<!--
+<div th:if="${student != null}">
+    <p>Nom : <span th:text="${student.getFirstName()}"></span></p>
+    <p>Prenom : <span th:text="${student.getLastName()}"></span></p>
+    <p>age : <span th:text="${student.getAge()}"></span></p>
+    <p>email : <span th:text="${student.getEmail()}"></span></p>
+
+</div>
+-->
+
+<div th:if="${student != null}">
+    <form th:if="${update}" th:action="@{/update}" method="post" th:object="${student}">
+        <input type="number" id="id" name="id" th:value="${student.getId()}" hidden>
+        <div>
+            <label for="firstName">Nom :</label>
+            <input type="text" id="firstName" name="firstName" th:value="${student.getFirstName()}"/>
+        </div>
+        <div>
+            <label for="lastName">Prenom :</label>
+            <input type="text" id="lastName" name="lastName" th:value="${student.getLastName()}"/>
+        </div>
+        <div>
+            <label for="age">Age :</label>
+            <input type="number" id="age" name="age" th:value="${student.getAge()}"/>
+        </div>
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" th:value="${student.getEmail()}"/>
+        </div>
+        <div>
+            <button type="submit">Enregistrer</button>
+        </div>
+    </form>
+    <div th:if="${!update}">
+        <p>Nom : <span th:text="${student.getFirstName()}"></span></p>
+        <p>Prenom : <span th:text="${student.getLastName()}"></span></p>
+        <p>Age : <span th:text="${student.getAge()}"></span></p>
+        <p>Email : <span th:text="${student.getEmail()}"></span></p>
+    </div>
+</div>
+
+<div th:if="${student == null}">
+    <p>Aucun etudiant répond à ce Nom</p>
+</div>
+
+<hr>
+<nav>
+    <a th:href="@{/list}">Retour Liste</a>
+    <a th:href="@{/}">Acceuil</a>
+</nav>
+
+
+</body>
+</html>
