@@ -40,7 +40,7 @@ public class StudentService {
         long studentId = students.size();
 
         while (students.containsKey(studentId))
-            studentId = students.size();
+            studentId++;
 
         student.setId(studentId);
         students.put(student.getId(), student);
